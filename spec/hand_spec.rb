@@ -54,15 +54,6 @@ describe Hand do
       expect(hand.calculate_value).to eq(7)
     end
 
-    # it "tests for trips" do
-    #
-    #
-    # end
-    #
-    # it "tests for full house" do
-    #
-    # end
-    #
 
     let(:card6) {double(:card, value: "5", suit: "Heart") }
     let(:card7) {double(:card, value: "6", suit: "Heart") }
@@ -74,27 +65,7 @@ describe Hand do
       hand.cards=[card6, card7, card8, card9, card10]
       expect(hand.calculate_value).to eq(8)
     end
-    #
-    # it "tests for straight" do
-    #
-    # end
-    #
-    # it "tests for flush" do
-    #
-    # end
-    #
-    # it "tests for two pair" do
-    #
-    # end
-    #
-    # it "tests for pair" do
-    #
-    # end
-    #
-    # it "tests for high card" do
-    #
-    # end
-    #
+
 
   end
 
