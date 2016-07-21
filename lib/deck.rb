@@ -17,13 +17,17 @@ class Deck
     @all_cards.shuffle!
   end
 
-  def deal_card(hand)
-    hand.cards << @all_cards.shift
-    nil
+  def take_top_card
+    @all_cards.shift
   end
 
   def count
     @all_cards.length
+  end
+
+  def take(n)
+    raise "not enough cards" if n > count
+    @cards.shift
   end
 
 end

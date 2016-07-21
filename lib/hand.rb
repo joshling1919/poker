@@ -13,7 +13,7 @@ class Hand
     pair: 1,
     high_card: 0
   }
-
+  attr_reader :deck
   attr_accessor :cards
 
   def initialize(deck)
@@ -22,7 +22,7 @@ class Hand
   end
 
   def get_card
-    @deck.deal_card
+    @cards << @deck.take_top_card
   end
 
   def deal
@@ -30,7 +30,7 @@ class Hand
   end
 
   def remove_card(card)
-    @cards.reject! {|c| c == card}
+    @cards.delete(card)
   end
 
   def calculate_value

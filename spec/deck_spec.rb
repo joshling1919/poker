@@ -42,14 +42,11 @@ describe Deck do
 
   end
 
-  describe '#deal_card(hand)' do
+  describe 'take_top_card' do
 
-    let(:hand) {double(:hand, cards: [])}
-
-    it "passes the top card to a hand" do
+    it "takes out the first card" do
       current_first = test_deck.all_cards.first
-      test_deck.deal_card(hand)
-      expect(hand.cards).to include(current_first)
+      expect(test_deck.take_top_card).to be(current_first)
       expect(test_deck.all_cards).not_to include(current_first)
     end
 

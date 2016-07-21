@@ -2,7 +2,7 @@ require "rspec"
 require "hand"
 
 describe Hand do
-  let(:deck) { double(:deck, deal_card: "deals")}
+  let(:deck) { Deck.new }
   subject(:hand) { Hand.new(deck) }
 
   describe "#initialize" do
@@ -13,7 +13,10 @@ describe Hand do
 
   describe "#get_card" do
     it "tells the deck to give one card" do
-      expect(deck).to receive(deal_card).with(hand)
+      deck.shuffle!
+      hand.get_card
+      expect(hand.cards.length).to eq(1)
+      p hand.cards
     end
   end
 
