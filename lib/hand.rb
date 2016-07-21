@@ -29,6 +29,10 @@ class Hand
     5.times { get_card }
   end
 
+  def remove_card(card)
+    @cards.reject! {|c| c == card}
+  end
+
   def calculate_value
     histogram = histogram_of_hand
     if histogram.first == 4
@@ -61,7 +65,6 @@ class Hand
 
 
   def histogram_of_hand
-    # byebug
     hash_count = Hash.new(0)
     @cards.each do |card|
       hash_count[card.value] += 1

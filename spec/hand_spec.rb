@@ -2,8 +2,8 @@ require "rspec"
 require "hand"
 
 describe Hand do
-
-  subject(:hand) { Hand.new }
+  let(:deck) { double(:deck, deal_card: "deals")}
+  subject(:hand) { Hand.new(deck) }
 
   describe "#initialize" do
     it "initializes with an empty array as a hand" do
@@ -11,7 +11,6 @@ describe Hand do
     end
   end
 
-  let(:deck) { double(:deck, :deal_card)}
   describe "#get_card" do
     it "tells the deck to give one card" do
       expect(deck).to receive(deal_card).with(hand)
