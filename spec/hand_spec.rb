@@ -40,14 +40,59 @@ describe Hand do
 
   describe "calculate_value" do
 
-    it "tests for 4 of a kind" do
+    let(:card1) {double(:card, value: "5", suit: "Heart") }
+    let(:card2) {double(:card, value: "5", suit: "Clover") }
+    let(:card3) {double(:card, value: "5", suit: "Diamond") }
+    let(:card4) {double(:card, value: "5", suit: "Spade") }
+    let(:card5) {double(:card, value: "A", suit: "Heart") }
 
+
+    it "tests for quads" do
+      hand.cards=[card1, card2, card3, card4, card5]
+      expect(hand.calculate_value).to eq(7)
     end
-    it "tests for full house" do
 
-      
+    # it "tests for trips" do
+    #
+    #
+    # end
+    #
+    # it "tests for full house" do
+    #
+    # end
+    #
+
+    let(:card6) {double(:card, value: "5", suit: "Heart") }
+    let(:card7) {double(:card, value: "6", suit: "Heart") }
+    let(:card8) {double(:card, value: "7", suit: "Heart") }
+    let(:card9) {double(:card, value: "8", suit: "Heart") }
+    let(:card10) {double(:card, value: "9", suit: "Heart") }
+
+    it "tests for straight flush" do
+      hand.cards=[card6, card7, card8, card9, card10]
+      expect(hand.calculate_value).to eq(8)
     end
-
+    #
+    # it "tests for straight" do
+    #
+    # end
+    #
+    # it "tests for flush" do
+    #
+    # end
+    #
+    # it "tests for two pair" do
+    #
+    # end
+    #
+    # it "tests for pair" do
+    #
+    # end
+    #
+    # it "tests for high card" do
+    #
+    # end
+    #
 
   end
 
